@@ -36,7 +36,7 @@ const companies = [
 return (
   <div className="App">
       <div id= "ex1" >
-        <h1 id="h1" >Hello  </h1>
+        <h1 id="h1" style={{}}>Hello </h1>
         <h1 id="h2" >  React</h1>
       </div>
 
@@ -52,7 +52,7 @@ return (
 
       <nav class="navbar">
         <ul class="nav-links">
-          <li><a href="#home">Home</a></li>
+          <li><a href="#home" style={{}}>Home</a></li>
           <li><a href="#about">Search</a></li>
           <li><a href="#services">Contact</a></li>
           <li id="n1"><a href="#contact">Login</a></li>
@@ -95,7 +95,7 @@ return (
       </div>
       <div>
         <h2>3. danh sách tên công ty</h2>
-        {/* Công ty Retail với năm bắt đầu tăng thêm 1 */}
+        
         <div>
           {retailCompanies.map((company, index) => (
             <div key={index}>
@@ -103,6 +103,9 @@ return (
             </div>
           ))}
         </div>
+      </div>
+      <div> 
+
       </div>
       <div>
         
