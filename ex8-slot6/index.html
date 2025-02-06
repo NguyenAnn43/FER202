@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Flight Booking Form</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <style>
+    .form-group {
+      margin-bottom: 1rem;
+    }
+    .input-group-prepend, .input-group-append {
+      background-color: #f0f0f0; /* Màu nền phần bổ trợ */
+      border: 1px solid #ccc;
+      border-radius: 4px;
+    }
+    .input-group-prepend .input-group-text {
+      background-color: #e9ecef; /* Màu nền của phần tử bổ trợ */
+      border: none;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="row">
+      <div class="col-md-6">
+        <h1>Form Đặt Vé Máy Bay</h1>
+        <form>
+          <div class="form-group">
+            <label for="fullName">Họ tên:</label>
+            <div class="input-group">
+              <div class="input-group-prepend">
+                <span class="input-group-text"><i class="fas fa-user"></i></span> 
+              </div>
+              <input type="text" class="form-control" id="fullName" placeholder="Phải nhập 5 ký tự in hoa..." required>
+              <div class="input-group-append">
+                <span class="input-group-text">vnd</span>
+              </div>
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="address">Địa chỉ:</label>
+            <input type="text" class="form-control" id="address" placeholder="Phải nhập 5 ký tự in hoa..." required>
+          </div>
+          <div class="form-row">
+            <div class="col-md-6">
+              <label for="from">Đi từ:</label>
+              <select class="form-control" id="from">
+                <option value="Hà Nội">Hà Nội</option>
+                <option value="Hồ Chí Minh">Hồ Chí Minh</option>
+                <option value="Đà Nẵng">Đà Nẵng</option>
+              </select>
+            </div>
+            <div class="col-md-6">
+              <label for="to">Đến:</label>
+              <select class="form-control" id="to">
+                <option value="Hà Nội">Hà Nội</option>
+                <option value="Hồ Chí Minh">Hồ Chí Minh</option>
+                <option value="Đà Nẵng">Đà Nẵng</option>
+              </select>
+            </div>
+          </div>
+          <div class="form-group">
+            <label>Chọn chiều đi (Khứ hồi):</label>
+            <div class="form-check">
+              <input class="form-check-input" type="radio" name="tripType" id="one-way" value="one-way">
+              <label class="form-check-label" for="one-way">
+                Đi
+              </label>
+            </div>
+            <div class="form-check">
+              <input class="form-check-input" type="radio" name="tripType" id="round-trip" value="round-trip">
+              <label class="form-check-label" for="round-trip">
+                Khứ hồi
+              </label>
+            </div>
+          </div>
+          <button type="submit" class="btn btn-primary">Đặt vé</button>
+        </form>
+      </div>
+      <div class="col-md-6">
+        <div class="row">
+          <div class="col-12 bg-primary"></div>
+          <div class="col-12 bg-secondary"></div>
+          <div class="col-12 bg-success"></div>
+          <div class="col-6 bg-danger"></div>
+          <div class="col-6 bg-warning"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+  <script src="https://kit.fontawesome.com/your-fontawesome-kit.js"></script> </body>
+</html>
