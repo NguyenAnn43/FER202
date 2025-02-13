@@ -4,11 +4,18 @@ import "./index.css";
 import App from "./App";
 import reportWebVitals from "./reportWebVitals";
 import "bootstrap/dist/css/bootstrap.min.css";
-import SimpleWeb from "./components/simpleWeb";
+import SimpleWeb from "./components/SimpleWeb";
+import HelloWorld from "./components/HelloWorld";
+import Counter from "./components/Counter";
+import SimpleCard from "./components/SimpleCard";
+
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <React.StrictMode>
     <App />
+    <HelloWorld />
+    <Counter />
+    <SimpleCard />
     <SimpleWeb />
   </React.StrictMode>
 );

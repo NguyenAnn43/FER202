@@ -1,42 +1,63 @@
 import React from "react";
-import "bootstrap/dist/css/bootstrap.min.css";
+import { Container, Row, Col, Navbar, Nav, NavDropdown } from "react-bootstrap";
 
-function simpleWeb() {
+function SimpleWeb() {
   return (
-    <div>
-      <header>
-        <img
-          src="https://www.senviet.art/wp-content/uploads/2021/12/fptulogo.jpg"
-          alt="FPT Logo"
-        />
-      </header>
-      <nav>
-        <ul>
-          <li>
-            <a href="#">Home</a>
-          </li>
-          <li>
-            <a href="#about">About</a>
-          </li>
-          <li>
-            <a href="#contact">Contact</a>
-          </li>
-        </ul>
-      </nav>
+    <div style={{ textAlign: "center" }}>
+      <Navbar bg="transparent" variant="dark" expand="lg">
+        <Container style={{ backgroundColor: "orange" }}>
+          <Row>
+            <Col href="#home">
+              <img
+                src="https://www.senviet.art/wp-content/uploads/2021/12/fptulogo.jpg"
+                alt="FPT Logo"
+                width="200"
+                height="100"
+              />
+            </Col>
+          </Row>
+          <Row>
+            <Col>
+              <Nav className="justify-content-center">
+                <Nav.Link href="#home">Home</Nav.Link>
+                <Nav.Link href="#about">About</Nav.Link>
+                <Nav.Link href="#contact">Contact</Nav.Link>
+              </Nav>
+            </Col>
+          </Row>
+        </Container>
+      </Navbar>
 
-      <section id="about">
-        <h2>About</h2>
-        <p>This is the about section of the website.</p>
-      </section>
+      <Container>
+        <Row>
+          <Col>
+            <section id="about">
+              <h2>About</h2>
+              <p>This is the about section of the website.</p>
+            </section>
+          </Col>
+        </Row>
 
-      <section id="contact">
-        <h2>Contact</h2>
-        <p>For any inquiries, please contact us at example@example.com.</p>
-      </section>
+        <Row>
+          <Col>
+            <section id="contact">
+              <h2>Contact</h2>
+              <p>
+                For any inquiries, please contact us at example@example.com.
+              </p>
+            </section>
+          </Col>
+        </Row>
+      </Container>
 
-      <footer>© 2023 Website. All rights reserved.</footer>
+      <footer
+        className="bg-light text-center"
+        style={{ backgroundColor: "orange" }}
+      >
+        <p>© 2023 Website. All rights reserved.</p>
+      </footer>
     </div>
   );
 }
 
-export default simpleWeb;
+export default SimpleWeb;
