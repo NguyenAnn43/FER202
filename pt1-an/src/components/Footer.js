@@ -3,16 +3,15 @@ import { Row, Col, Container } from "react-bootstrap";
 
 function Footer() {
   return (
-    <footer className="bg-light text-center py-3">
+    <footer className="bg-warning text-center py-3">
       <Container>
         <Row>
           <Col lg={4}>
             <h5>Our Address</h5>
             <p>Khu đô thị FPT Đà Nẵng</p>
             <p>
-              <a href="tel:+84023111111">+840231 11111</a>
-              <br />
-              <a href="tel:+85287654321">+852 8765 4321</a>
+              <p>+840231 11111</p>
+              <p>+852 8765 4321</p>
             </p>
             <p>
               <a href="mailto:fptudn@fpt.edu.vn">fptudn@fpt.edu.vn</a>

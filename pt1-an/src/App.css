@@ -37,46 +37,20 @@
   }
 }
 
-header {
-  background-color: #f0f0f0;
-  padding: 20px;
+/* Header */
+.form-inline {
+  margin-left: auto; /* Đẩy form sang bên phải */
 }
 
-.container {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
+/* Hoặc, nếu bạn muốn form sát với lề phải hơn */
+.form-inline {
+  margin-left: auto !important; /* Đẩy form sang bên phải, !important để ghi đè các style khác */
+  margin-right: 0; /* Loại bỏ margin bên phải mặc định */
 }
 
-.logo a {
-  font-weight: bold;
-  font-size: 20px;
-  color: #333;
+/* Nếu muốn form có khoảng cách với các nav item */
+.form-inline {
+  margin-left: auto;
+  margin-right: 10px; /* Thêm margin bên phải */
 }
 
-nav ul {
-  list-style: none;
-  margin: 0;
-  padding: 0;
-}
-
-nav li {
-  display: inline;
-  margin-right: 20px;
-}
-
-.search-box {
-  display: flex;
-}
-
-.search-box input {
-  padding: 5px;
-  border: 1px solid #ccc;
-}
-
-.search-box button {
-  padding: 5px 10px;
-  background-color: #007bff;
-  color: white;
-  border: none;
-}

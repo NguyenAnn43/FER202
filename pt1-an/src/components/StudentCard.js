@@ -1,68 +1,69 @@
-import React from "react";
-import { Card, Col, Row, Button } from "react-bootstrap";
+import React, { useState } from "react";
+import { Card, Form, Button, Image, Row } from "react-bootstrap";
 
 function StudentCard(props) {
-  const { name, age, grade, image } = props;
+  const { name, id, address, image } = props;
+  const [status, setStatus] = useState(null);
+
+  const handleStatusChange = (event) => {
+    setStatus(event.target.value);
+  };
+
+  const handleSubmit = () => {
+    console.log("Submitted:", { name, id, address, status });
+    alert("Thông tin đã được lưu!");
+  };
 
   return (
-    <div>
-      <Row>
-        <Col md={4}>
-          <Card style={{ width: "18rem" }}>
-            <Card.Img variant="top" src="holder.js/100px180" />
-            <Card.Body>
-              <Card.Title>Card Title</Card.Title>
-              <Card.Text>
-                Some quick example text to build on the card title and make up
-                the bulk of the card's content.
-              </Card.Text>
-              <Button variant="primary">Go somewhere</Button>
-            </Card.Body>
-          </Card>
-        </Col>
-        <Col md={4}>
-          <Card style={{ width: "18rem" }}>
-            <Card.Img variant="top" src="holder.js/100px180" />
-            <Card.Body>
-              <Card.Title>Card Title</Card.Title>
-              <Card.Text>
-                Some quick example text to build on the card title and make up
-                the bulk of the card's content.
-              </Card.Text>
-              <Button variant="primary">Go somewhere</Button>
-            </Card.Body>
-          </Card>
-        </Col>
-      </Row>
-      <Row>
-        <Col md={4}>
-          <Card style={{ width: "18rem" }}>
-            <Card.Img variant="top" src="holder.js/100px180" />
-            <Card.Body>
-              <Card.Title>Card Title</Card.Title>
-              <Card.Text>
-                Some quick example text to build on the card title and make up
-                the bulk of the card's content.
-              </Card.Text>
-              <Button variant="primary">Go somewhere</Button>
-            </Card.Body>
-          </Card>
-        </Col>
-        <Col md={4}>
-          <Card style={{ width: "18rem" }}>
-            <Card.Img variant="top" src="holder.js/100px180" />
-            <Card.Body>
-              <Card.Title>Card Title</Card.Title>
-              <Card.Text>
-                Some quick example text to build on the card title and make up
-                the bulk of the card's content.
-              </Card.Text>
-              <Button variant="primary">Go somewhere</Button>
-            </Card.Body>
-          </Card>
-        </Col>
-      </Row>
-    </div>
+    <Card>
+      <Card.Body>
+        <div className="d-flex justify-content-center mb-3">
+          {" "}
+          {/* Center image */}
+          <Image
+            src={image}
+            alt={name}
+            rounded
+            style={{ width: "171px", height: "180px" }}
+          />
+        </div>
+        <Card.Title className="text-center">{id}</Card.Title>{" "}
+        {/* Center title */}
+        <Card.Text>{name}</Card.Text>
+        <Card.Text>{address}</Card.Text>
+        <Form.Group>
+          <div className="d-flex justify-content-around">
+            {" "}
+            {/* Distribute radio buttons evenly */}
+            <Form.Check
+              type="radio"
+              label="Absent"
+              value="Absent"
+              name="status"
+              id={`absent-${id}`} // Unique ID for each student
+              onChange={handleStatusChange}
+              checked={status === "Absent"}
+            />
+            <Form.Check
+              type="radio"
+              label="Present"
+              value="Present"
+              name="status"
+              id={`present-${id}`} // Unique ID for each student
+              onChange={handleStatusChange}
+              checked={status === "Present"}
+            />
+          </div>
+        </Form.Group>
+        <div className="d-flex justify-content-center">
+          {" "}
+          {/* Center button */}
+          <Button variant="warning" onClick={handleSubmit}>
+            Submit
+          </Button>
+        </div>
+      </Card.Body>
+    </Card>
   );
 }
 
