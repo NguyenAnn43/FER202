@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 
 export const quizData = [
   {
@@ -21,13 +21,13 @@ export const quizData = [
   },
 ];
 
-const Quiz = () => {
+function Quiz() {
   const [currentQuestion, setCurrentQuestion] = useState(0);
   const [selectedAnswer, setSelectedAnswer] = useState(null);
   const [score, setScore] = useState(0);
-  const [showResult, setShowResult] = useState(false);
+  const [quizCompleted, setQuizCompleted] = useState(false);
 
-  const handleAnswerSelect = (answer) => {
+  const handleAnswerClick = (answer) => {
     setSelectedAnswer(answer);
   };
 
@@ -36,60 +36,85 @@ const Quiz = () => {
       setScore(score + 1);
     }
 
-    setSelectedAnswer(null);
-
-    if (currentQuestion < quizData.length - 1) {
+    if (currentQuestion + 1 < quizData.length) {
       setCurrentQuestion(currentQuestion + 1);
+      setSelectedAnswer(null);
     } else {
-      setShowResult(true);
+      setQuizCompleted(true);
     }
   };
 
-  useEffect(() => {
-    // Reset state when quiz restarts
-    if (showResult) {
-      setCurrentQuestion(0);
-      setScore(0);
-      setShowResult(false);
-    }
-  }, [showResult]);
-
-  if (showResult) {
+  if (quizCompleted) {
     return (
-      <div>
+      <div
+        style={{
+          textAlign: "center",
+          color: "red",
+          fontSize: "24px",
+          fontFamily: "Arial",
+        }}
+      >
         <h2>Quiz Completed!</h2>
-        <p>
-          Your score: {score} out of {quizData.length}
-        </p>
-        <button onClick={() => setShowResult(false)}>Restart Quiz</button>
+        <p>Your score: {score}</p>
       </div>
     );
   }
 
   return (
-    <div>
-      <h2>Question {currentQuestion + 1}</h2>
-      <p>{quizData[currentQuestion].question}</p>
-      <ul>
+    <div style={{ fontFamily: "Arial", margin: "20px", display: "flex" }}>
+      <div
+        style={{ width: "50%", padding: "20px", borderRight: "1px solid #ccc" }}
+      >
+        <h2>Question {currentQuestion + 1}</h2>
+        <p>{quizData[currentQuestion].question}</p>
         {quizData[currentQuestion].answers.map((answer, index) => (
-          <li key={index}>
-            <label>
+          <div key={index} style={{ marginBottom: "10px" }}>
+            <label style={{ display: "flex", alignItems: "center" }}>
               <input
                 type="radio"
+                id={`answer-${index}`}
+                name="answer"
                 value={answer}
                 checked={selectedAnswer === answer}
-                onChange={() => handleAnswerSelect(answer)}
+                onChange={() => handleAnswerClick(answer)}
+                style={{ marginRight: "10px" }}
               />
               {answer}
             </label>
-          </li>
+          </div>
         ))}
-      </ul>
-      <button onClick={handleNextQuestion} disabled={!selectedAnswer}>
-        {currentQuestion === quizData.length - 1 ? "Finish" : "Next"}
-      </button>
+        <button
+          onClick={handleNextQuestion}
+          style={{
+            backgroundColor: "red",
+            color: "white",
+            padding: "10px 20px",
+            border: "none",
+            borderRadius: "5px",
+            cursor: "pointer",
+          }}
+        >
+          Next
+        </button>
+      </div>
+      <div
+        style={{
+          width: "50%",
+          padding: "20px",
+          textAlign: "center",
+          color: "red",
+          fontSize: "24px",
+        }}
+      >
+        {quizCompleted && (
+          <div>
+            <h2>Quiz Completed!</h2>
+            <p>Your score: {score}</p>
+          </div>
+        )}
+      </div>
     </div>
   );
-};
+}
 
 export default Quiz;
