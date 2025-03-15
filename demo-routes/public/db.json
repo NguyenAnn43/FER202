@@ -1,0 +1,7 @@
+{
+    "posts": [
+      { "id": 1, "title": "React Router Basics", "content": "This post explains the basics of React Router." },
+      { "id": 2, "title": "React Bootstrap Guide", "content": "Learn how to use React Bootstrap components." },
+      { "id": 3, "title": "JSON Server Tutorial", "content": "How to use JSON Server for mock APIs." }
+    ]
+  }
