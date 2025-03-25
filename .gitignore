@@ -3,3 +3,5 @@
 /t/test-results
 /t/trash directory*
 /__pycache__/
+*.mp4
+*.zip
